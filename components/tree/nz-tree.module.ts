@@ -11,13 +11,14 @@ import { NgModule } from '@angular/core';
 
 import { NzAddOnModule, NzHighlightModule, NzNoAnimationModule } from 'ng-zorro-antd/core';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzTreeHighlightNodeComponent } from './nz-tree-highlight-node.component';
 
 import { NzTreeNodeComponent } from './nz-tree-node.component';
 import { NzTreeComponent } from './nz-tree.component';
 
 @NgModule({
   imports: [CommonModule, NzAddOnModule, NzIconModule, NzNoAnimationModule, NzHighlightModule],
-  declarations: [NzTreeComponent, NzTreeNodeComponent],
-  exports: [NzTreeComponent, NzTreeNodeComponent]
+  declarations: [NzTreeComponent, NzTreeNodeComponent, NzTreeHighlightNodeComponent],
+  exports: [NzTreeComponent, NzTreeNodeComponent, NzTreeHighlightNodeComponent]
 })
 export class NzTreeModule {}

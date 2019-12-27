@@ -1,0 +1,10 @@
+<ng-container *ngIf="nzTreeNode.isMatched">
+  <span>
+    {{highlightKeys[0]}}<span class="font-highlight">{{nzSearchValue}}</span>{{highlightKeys[1]}}
+  </span>
+</ng-container>
+<ng-container *ngIf="!nzTreeNode.isMatched">
+  {{nzTreeNode.title}}
+</ng-container>
+<!--maybe we do not need it-->
+<ng-content></ng-content>

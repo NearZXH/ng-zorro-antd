@@ -355,6 +355,7 @@ export class NzTreeBaseService implements OnDestroy {
     if (!isNotNil(value)) {
       return;
     }
+    console.log(value);
     // to reset expandedNodeList
     const expandParent = (n: NzTreeNode) => {
       // expand parent node

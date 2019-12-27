@@ -5,17 +5,29 @@ import { NzContextMenuService, NzDropdownMenuComponent } from 'ng-zorro-antd/dro
 @Component({
   selector: 'nz-demo-tree-directory',
   template: `
-    <nz-tree [nzData]="nodes" (nzClick)="activeNode($event)" (nzDblClick)="openFolder($event)" [nzTreeTemplate]="nzTreeTemplate"></nz-tree>
+    <nz-input-group [nzSuffix]="suffixIcon">
+      <input type="text" nz-input placeholder="Search" [(ngModel)]="searchValue" />
+    </nz-input-group>
+    <ng-template #suffixIcon>
+      <i nz-icon nzType="search"></i>
+    </ng-template>
+    <nz-tree
+      [nzData]="nodes"
+      (nzClick)="activeNode($event)"
+      [nzSearchValue]="searchValue"
+      (nzDblClick)="openFolder($event)"
+      [nzTreeTemplate]="nzTreeTemplate"
+    ></nz-tree>
     <ng-template #nzTreeTemplate let-node>
       <span class="custom-node" [class.active]="activedNode?.key === node.key">
         <span *ngIf="!node.isLeaf" (contextmenu)="contextMenu($event, menu)">
           <i nz-icon [nzType]="node.isExpanded ? 'folder-open' : 'folder'" (click)="openFolder(node)"></i>
-          <span class="folder-name">{{ node.title }}</span>
+          <span class="folder-name" nz-tree-highlight-node [nzSearchValue]="searchValue" [nzTreeNode]="node"></span>
           <span class="folder-desc">created by {{ node?.origin?.author | lowercase }}</span>
         </span>
         <span *ngIf="node.isLeaf" (contextmenu)="contextMenu($event, menu)">
           <i nz-icon nzType="file"></i>
-          <span class="file-name">{{ node.title }}</span>
+          <span class="file-name" nz-tree-highlight-node [nzSearchValue]="searchValue" [nzTreeNode]="node"></span>
           <span class="file-desc">modified by {{ node?.origin?.author | lowercase }}</span>
         </span>
       </span>
@@ -71,6 +83,7 @@ import { NzContextMenuService, NzDropdownMenuComponent } from 'ng-zorro-antd/dro
   ]
 })
 export class NzDemoTreeDirectoryComponent {
+  searchValue = '';
   // actived node
   activedNode: NzTreeNode;
   nodes = [
