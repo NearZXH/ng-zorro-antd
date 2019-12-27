@@ -72,7 +72,12 @@
           <i nz-icon *ngIf="nzIcon" [nzType]="nzIcon"></i>
         </span>
       </span>
-      <span class="ant-tree-title" [innerHTML]="nzHighlightFunc(nzSearchValue, nzTreeNode)"> </span>
+      <span
+        class="ant-tree-title"
+        nz-tree-highlight-node
+        [nzTreeNode]="nzTreeNode"
+        [nzSearchValue]="nzSearchValue"
+      ></span>
     </span>
   </ng-container>
   <ng-template

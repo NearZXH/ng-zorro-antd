@@ -22,15 +22,16 @@ import { Component } from '@angular/core';
   `
 })
 export class NzDemoTreeCustomizedIconComponent {
+  // icon name should not allow whitespace
   nodes = [
     {
       title: 'parent 1',
       key: '100',
       expanded: true,
-      icon: 'anticon anticon-smile-o',
+      icon: 'smile',
       children: [
-        { title: 'leaf', key: '1001', icon: 'anticon anticon-meh-o', isLeaf: true },
-        { title: 'leaf', key: '1002', icon: 'anticon anticon-frown-o', isLeaf: true }
+        { title: 'leaf', key: '1001', icon: 'meh', isLeaf: true },
+        { title: 'leaf', key: '1002', icon: 'frown', isLeaf: true }
       ]
     }
   ];
