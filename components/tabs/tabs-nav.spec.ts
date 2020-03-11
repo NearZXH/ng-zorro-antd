@@ -9,9 +9,9 @@ import { Subject } from 'rxjs';
 
 import { dispatchFakeEvent } from 'ng-zorro-antd/core';
 
-import { NzTabsNavComponent } from './nz-tabs-nav.component';
-import { NzTabsModule } from './nz-tabs.module';
-import { NzTabPositionMode } from './nz-tabset.component';
+import { NzTabsNavComponent } from './tabs-nav.component';
+import { NzTabsModule } from './tabs.module';
+import { NzTabPositionMode } from './tabset.component';
 
 describe('tabs nav', () => {
   const change = new Subject();
