@@ -35,7 +35,14 @@ import { NzTabDirective } from './tab.directive';
   preserveWhitespaces: false,
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './tab.component.html'
+  template: `
+    <ng-template #titleTpl>
+      <ng-content select="[nz-tab-link]"></ng-content>
+    </ng-template>
+    <ng-template #bodyTpl>
+      <ng-content></ng-content>
+    </ng-template>
+  `
 })
 export class NzTabComponent implements OnChanges, OnDestroy {
   position: number | null = null;
