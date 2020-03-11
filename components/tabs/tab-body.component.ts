@@ -14,7 +14,7 @@ import { ChangeDetectionStrategy, Component, Input, TemplateRef, ViewEncapsulati
   preserveWhitespaces: false,
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './nz-tab-body.component.html',
+  templateUrl: './tab-body.component.html',
   host: {
     '[class.ant-tabs-tabpane-active]': 'active',
     '[class.ant-tabs-tabpane-inactive]': '!active'

@@ -33,9 +33,9 @@ import { InputBoolean, NzDomEventService, pxToNumber } from 'ng-zorro-antd/core'
 import { merge, of as observableOf, Subject, Subscription } from 'rxjs';
 import { finalize, startWith, takeUntil } from 'rxjs/operators';
 
-import { NzTabLabelDirective } from './nz-tab-label.directive';
-import { NzTabsInkBarDirective } from './nz-tabs-ink-bar.directive';
-import { NzTabPositionMode } from './nz-tabset.component';
+import { NzTabLabelDirective } from './tab-label.directive';
+import { NzTabsInkBarDirective } from './tabs-ink-bar.directive';
+import { NzTabPositionMode } from './tabset.component';
 
 const EXAGGERATED_OVERSCROLL = 64;
 export type ScrollDirection = 'after' | 'before';
@@ -46,7 +46,7 @@ export type ScrollDirection = 'after' | 'before';
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  templateUrl: './nz-tabs-nav.component.html'
+  templateUrl: './tabs-nav.component.html'
 })
 export class NzTabsNavComponent implements AfterContentChecked, AfterContentInit, OnDestroy {
   private _tabPositionMode: NzTabPositionMode = 'horizontal';

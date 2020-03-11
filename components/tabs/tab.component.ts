@@ -26,8 +26,8 @@ import { Subject } from 'rxjs';
 
 import { InputBoolean } from 'ng-zorro-antd/core';
 
-import { NzTabLinkDirective } from './nz-tab-link.directive';
-import { NzTabDirective } from './nz-tab.directive';
+import { NzTabLinkDirective } from './tab-link.directive';
+import { NzTabDirective } from './tab.directive';
 
 @Component({
   selector: 'nz-tab',
@@ -35,7 +35,7 @@ import { NzTabDirective } from './nz-tab.directive';
   preserveWhitespaces: false,
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './nz-tab.component.html'
+  templateUrl: './tab.component.html'
 })
 export class NzTabComponent implements OnChanges, OnDestroy {
   position: number | null = null;

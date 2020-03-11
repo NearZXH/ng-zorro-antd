@@ -47,8 +47,8 @@ import {
 } from 'ng-zorro-antd/core';
 import { filter, first, startWith, takeUntil } from 'rxjs/operators';
 
-import { NzTabComponent } from './nz-tab.component';
-import { NzTabsNavComponent } from './nz-tabs-nav.component';
+import { NzTabComponent } from './tab.component';
+import { NzTabsNavComponent } from './tabs-nav.component';
 
 export interface NzAnimatedInterface {
   inkBar: boolean;
@@ -75,7 +75,7 @@ const NZ_CONFIG_COMPONENT_NAME = 'tabs';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [NzUpdateHostClassService],
-  templateUrl: './nz-tabset.component.html',
+  templateUrl: './tabset.component.html',
   styles: [
     `
       nz-tabset {
@@ -162,7 +162,12 @@ export class NzTabSetComponent implements AfterContentChecked, OnInit, AfterView
     if (!disabled) {
       if (this.nzSelectedIndex !== null && this.nzSelectedIndex !== index && typeof this.nzCanDeactivate === 'function') {
         const observable = wrapIntoObservable(this.nzCanDeactivate(this.nzSelectedIndex, index));
-        observable.pipe(first(), takeUntil(this.destroy$)).subscribe(canChange => canChange && this.emitClickEvent(index));
+        observable
+          .pipe(
+            first(),
+            takeUntil(this.destroy$)
+          )
+          .subscribe(canChange => canChange && this.emitClickEvent(index));
       } else {
         this.emitClickEvent(index);
       }
